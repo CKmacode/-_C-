@@ -1,12 +1,12 @@
 # include <stdio.h>
-void Swap(int *, int *);  //º¯ÊıÉùÃ÷, ½»»»Á½¸ö±äÁ¿µÄÖµ
-void QuickSort(int *, int, int);  //º¯ÊıÉùÃ÷, ¿ìËÙÅÅĞò
+void Swap(int *, int *);  //å‡½æ•°å£°æ˜, äº¤æ¢ä¸¤ä¸ªå˜é‡çš„å€¼
+void QuickSort(int *, int, int);  //å‡½æ•°å£°æ˜, å¿«é€Ÿæ’åº
 int main(void)
 {
-    int i;  //Ñ­»·±äÁ¿
+    int i;  //å¾ªç¯å˜é‡
     int a[] = {900, 2, -58, 3, 34, 5, 76, 7, 32, 4, 43, 9, 1, 56, 8,-70, 635, -234, 532, 543, 2500};
-    QuickSort(a, 0, 20);  /*ÒıÓÃÆğÀ´ºÜ¼òµ¥, 0ÎªµÚÒ»¸öÔªËØµÄÏÂ±ê, 20Îª×îºóÒ»¸öÔªËØµÄÏÂ±ê*/
-    printf("×îÖÕÅÅĞò½á¹ûÎª:\n");
+    QuickSort(a, 0, 20);  /*å¼•ç”¨èµ·æ¥å¾ˆç®€å•, 0ä¸ºç¬¬ä¸€ä¸ªå…ƒç´ çš„ä¸‹æ ‡, 20ä¸ºæœ€åä¸€ä¸ªå…ƒç´ çš„ä¸‹æ ‡*/
+    printf("æœ€ç»ˆæ’åºç»“æœä¸º:\n");
     for (i=0; i<21; ++i)
     {
         printf("%d ", a[i]);
@@ -27,15 +27,15 @@ void QuickSort(int *a, int low, int high)
     int i = low;
     int j = high;
     int key = a[low];
-    if (low >= high)  //Èç¹ûlow >= highËµÃ÷ÅÅĞò½áÊøÁË
+    if (low >= high)  //å¦‚æœlow >= highè¯´æ˜æ’åºç»“æŸäº†
     {
         return ;
     }
-    while (low < high)  //¸ÃwhileÑ­»·½áÊøÒ»´Î±íÊ¾±È½ÏÁËÒ»ÂÖ
+    while (low < high)  //è¯¥whileå¾ªç¯ç»“æŸä¸€æ¬¡è¡¨ç¤ºæ¯”è¾ƒäº†ä¸€è½®
     {
         while (low < high && key <= a[high])
         {
-            --high;  //ÏòÇ°Ñ°ÕÒ
+            --high;  //å‘å‰å¯»æ‰¾
         }
         if (key > a[high])
         {
@@ -44,7 +44,7 @@ void QuickSort(int *a, int low, int high)
         }
         while (low < high && key >= a[low])
         {
-            ++low;  //ÏòºóÑ°ÕÒ
+            ++low;  //å‘åå¯»æ‰¾
         }
         if (key < a[low])
         {
@@ -52,6 +52,6 @@ void QuickSort(int *a, int low, int high)
             --high;
         }
     }
-    QuickSort(a, i, low-1);  //ÓÃÍ¬ÑùµÄ·½Ê½¶Ô·Ö³öÀ´µÄ×ó±ßµÄ²¿·Ö½øĞĞÍ¬ÉÏµÄ×ö·¨
-    QuickSort(a, low+1, j);  //ÓÃÍ¬ÑùµÄ·½Ê½¶Ô·Ö³öÀ´µÄÓÒ±ßµÄ²¿·Ö½øĞĞÍ¬ÉÏµÄ×ö·¨
+    QuickSort(a, i, low-1);  //ç”¨åŒæ ·çš„æ–¹å¼å¯¹åˆ†å‡ºæ¥çš„å·¦è¾¹çš„éƒ¨åˆ†è¿›è¡ŒåŒä¸Šçš„åšæ³•
+    QuickSort(a, low+1, j);  //ç”¨åŒæ ·çš„æ–¹å¼å¯¹åˆ†å‡ºæ¥çš„å³è¾¹çš„éƒ¨åˆ†è¿›è¡ŒåŒä¸Šçš„åšæ³•
 }
