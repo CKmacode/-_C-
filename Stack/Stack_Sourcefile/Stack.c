@@ -15,9 +15,9 @@ typedef struct Stack
 }STACK,*PSTACK;
 
 void init(PSTACK);
-void push(PSTACK,int);//Ñ¹Õ» 
+void push(PSTACK,int);//å‹æ ˆ 
 void traverse(PSTACK);
-bool pop(PSTACK,int*);//³öÕ»
+bool pop(PSTACK,int*);//å‡ºæ ˆ
 void clear(PSTACK);
 
 int main (void)
@@ -35,7 +35,7 @@ int main (void)
 	if(pop(&S,&val))
 	{
 		traverse(&S);
-		printf("³öÕ»ÔªËØÊÇ%d\n",val);
+		printf("å‡ºæ ˆå…ƒç´ æ˜¯%d\n",val);
 	}
 	clear(&S);
 	printf("Cleared:\n");
@@ -43,16 +43,16 @@ int main (void)
 	return 0;
 }
 /*
-Õ»µÄ³õÊ¼»¯
-ÊäÈë£ºÕ»½á¹¹ÌåµØÖ·
-Êä³ö£ºÎŞ 
+æ ˆçš„åˆå§‹åŒ–
+è¾“å…¥ï¼šæ ˆç»“æ„ä½“åœ°å€
+è¾“å‡ºï¼šæ—  
 */
 void init(PSTACK pS)
 {
 	pS->pTop = (PNODE)malloc(sizeof(NODE));
 	if(pS->pTop == NULL)
 	{
-		printf("·ÖÅäÄÚ´æÊ§°Ü£¬³ÌĞòÖĞÖ¹£¡\n");
+		printf("åˆ†é…å†…å­˜å¤±è´¥ï¼Œç¨‹åºä¸­æ­¢ï¼\n");
 		exit(-1);
 	}
 	else
@@ -63,16 +63,16 @@ void init(PSTACK pS)
 	
 }
 /*
-Ñ¹Õ»
-ÊäÈë£ºÕ»½á¹¹ÌåµØÖ·
-Êä³ö£ºÎŞ 
+å‹æ ˆ
+è¾“å…¥ï¼šæ ˆç»“æ„ä½“åœ°å€
+è¾“å‡ºï¼šæ—  
 */
 void push(PSTACK pS,int val)
 {
 	PNODE pNew = (PNODE)malloc(sizeof(NODE));
 	if (pNew == NULL)
 	{
-		printf("·ÖÅäÄÚ´æÊ§°Ü£¬³ÌĞòÖĞÖ¹£¡\n");
+		printf("åˆ†é…å†…å­˜å¤±è´¥ï¼Œç¨‹åºä¸­æ­¢ï¼\n");
 		exit(-1);
 	}
 	else
@@ -83,9 +83,9 @@ void push(PSTACK pS,int val)
 	}	
 }
 /*
-±éÀú 
-ÊäÈë£ºÕ»½á¹¹ÌåµØÖ·
-Êä³ö£ºÎŞ 
+éå† 
+è¾“å…¥ï¼šæ ˆç»“æ„ä½“åœ°å€
+è¾“å‡ºï¼šæ—  
 */
 void traverse(PSTACK pS)
 {
@@ -99,15 +99,15 @@ void traverse(PSTACK pS)
 	return;
 }
 /*
-³öÕ»
-ÊäÈë£º Õ»½á¹¹ÌåµØÖ·£¬³öÕ»´æ´¢µØÖ·
-Êä³ö£ºtrue/false 
+å‡ºæ ˆ
+è¾“å…¥ï¼š æ ˆç»“æ„ä½“åœ°å€ï¼Œå‡ºæ ˆå­˜å‚¨åœ°å€
+è¾“å‡ºï¼štrue/false 
 */
 bool pop(PSTACK pS,int* pVal)
 {
 	if(pS->pTop == pS->pBottom)
 	{
-		printf("³öÕ»Ê§°Ü£¡\n");
+		printf("å‡ºæ ˆå¤±è´¥ï¼\n");
 		return false;
 	}
 	else
@@ -121,9 +121,9 @@ bool pop(PSTACK pS,int* pVal)
 	}	
 }
 /*
-ÇåÕ» 
-ÊäÈë£ºÕ»½á¹¹ÌåµØÖ·
-Êä³ö£ºÎŞ 
+æ¸…æ ˆ 
+è¾“å…¥ï¼šæ ˆç»“æ„ä½“åœ°å€
+è¾“å‡ºï¼šæ—  
 */
 void clear(PSTACK pS)
 {
