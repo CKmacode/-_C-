@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <stdlib.h>
-typedef struct Node//¶¨Òå´æ´¢ÀàĞÍ£º½áµãNode 
+typedef struct Node//å®šä¹‰å­˜å‚¨ç±»å‹ï¼šç»“ç‚¹Node 
 	{
 		int data;
 		struct Node* pNext;
@@ -21,7 +21,7 @@ int main (void)
 	PNODE pHead;
 	pHead = creat_list();
 	traverse_list(pHead);
-/*	printf("Á´±íµÄ³¤¶ÈÊÇ%d\n",length_list(pHead));
+/*	printf("é“¾è¡¨çš„é•¿åº¦æ˜¯%d\n",length_list(pHead));
 	insert_list(pHead,3,666);
 	traverse_list(pHead);
 	delate_list(pHead,4,&val);
@@ -31,9 +31,9 @@ int main (void)
 	return 0;
 }
 /*
-´´½¨Ò»¸öĞÂµÄÁ´±í
-ÊäÈë£ºÎŞ
-Êä³ö£ºÍ·½ÚµãµÄµØÖ· 
+åˆ›å»ºä¸€ä¸ªæ–°çš„é“¾è¡¨
+è¾“å…¥ï¼šæ— 
+è¾“å‡ºï¼šå¤´èŠ‚ç‚¹çš„åœ°å€ 
 */
 PNODE creat_list(void)
 {
@@ -41,19 +41,19 @@ PNODE creat_list(void)
 	PNODE pHead = (PNODE)malloc(sizeof(NODE));
 	if (pHead == NULL)
 		{
-			printf("·ÖÅäÄÚ´æÊ§°Ü£¬³ÌĞòÖĞÖ¹£¡\n");
+			printf("åˆ†é…å†…å­˜å¤±è´¥ï¼Œç¨‹åºä¸­æ­¢ï¼\n");
 			exit(-1);	
 		} 
 	PNODE pTail = pHead;
-	printf("ÇëÊäÈëÄúĞèÒªÉú³ÉµÄÁ´±í×Ö½ÚÊı£º\n");
+	printf("è¯·è¾“å…¥æ‚¨éœ€è¦ç”Ÿæˆçš„é“¾è¡¨å­—èŠ‚æ•°ï¼š\n");
 	scanf("%d",&len);	
 	for(i = 0;i < len;i++)
 	{
-		printf("ÇëÊäÈëµÚ%d¸ö½ÚµãµÄÖµ£º\n",i+1);
+		printf("è¯·è¾“å…¥ç¬¬%dä¸ªèŠ‚ç‚¹çš„å€¼ï¼š\n",i+1);
 		PNODE pNew = (PNODE)malloc(sizeof(NODE));
 		if(NULL== pNew)
 		{
-			printf("·ÖÅäÄÚ´æÊ§°Ü£¬³ÌĞòÖĞÖ¹£¡");
+			printf("åˆ†é…å†…å­˜å¤±è´¥ï¼Œç¨‹åºä¸­æ­¢ï¼");
 			exit(-1);
 		}
 		scanf("%d",&pNew->data);
@@ -64,9 +64,9 @@ PNODE creat_list(void)
 	return pHead;
 }
 /*
-±éÀúÁ´±íµÄÃ¿Ò»¸öÔªËØ
-ÊäÈë£ºÁ´±íÍ·½ÚµãµÄµØÖ·
-Êä³ö£ºÎŞ 
+éå†é“¾è¡¨çš„æ¯ä¸€ä¸ªå…ƒç´ 
+è¾“å…¥ï¼šé“¾è¡¨å¤´èŠ‚ç‚¹çš„åœ°å€
+è¾“å‡ºï¼šæ—  
 */
 void traverse_list(PNODE pHead)
 {
@@ -80,9 +80,9 @@ void traverse_list(PNODE pHead)
 	return; 
 }
 /*
-ÅĞ¶ÏÁ´±íÊÇ·ñÎª¿Õ
-ÊäÈë£ºÍ·½ÚµãµØÖ·
-Êä³ö£ºtrue/false 
+åˆ¤æ–­é“¾è¡¨æ˜¯å¦ä¸ºç©º
+è¾“å…¥ï¼šå¤´èŠ‚ç‚¹åœ°å€
+è¾“å‡ºï¼štrue/false 
 */
 bool is_empty(PNODE pHead)
 {
@@ -92,9 +92,9 @@ bool is_empty(PNODE pHead)
 		return false;
 }
 /*
-¼ÆËãÁ´±íµÄ³¤¶È
-ÊäÈë£ºÍ·½ÚµãµØÖ·
-Êä³ö£º³¤¶È 
+è®¡ç®—é“¾è¡¨çš„é•¿åº¦
+è¾“å…¥ï¼šå¤´èŠ‚ç‚¹åœ°å€
+è¾“å‡ºï¼šé•¿åº¦ 
 */
 int length_list(PNODE pHead)
 {
@@ -109,9 +109,9 @@ int length_list(PNODE pHead)
 	return len;
 }
 /*
-ÏòÁ´±íµÚposÎ»ÖÃÇ°²åÈëÔªËØval
-ÊäÈë£ºÍ·½ÚµãµØÖ·¡¢Î»ÖÃpos¡¢²åÈëÔªËØval
-Êä³ö£ºtrue/false 
+å‘é“¾è¡¨ç¬¬posä½ç½®å‰æ’å…¥å…ƒç´ val
+è¾“å…¥ï¼šå¤´èŠ‚ç‚¹åœ°å€ã€ä½ç½®posã€æ’å…¥å…ƒç´ val
+è¾“å‡ºï¼štrue/false 
 */
 bool insert_list(PNODE pHead,int pos,int val)
 {
@@ -119,7 +119,7 @@ bool insert_list(PNODE pHead,int pos,int val)
 	PNODE p = pHead->pNext;
 	if (pos > length_list(pHead)||pos < 1)
 		{
-			printf("²åÈëÎ»ÖÃ²»ºÏÀí£¬²åÈëÊ§°Ü£¡\n");
+			printf("æ’å…¥ä½ç½®ä¸åˆç†ï¼Œæ’å…¥å¤±è´¥ï¼\n");
 			return false;
 		}
 		
@@ -137,9 +137,9 @@ bool insert_list(PNODE pHead,int pos,int val)
 		}
 }
 /*
-¶ÔÁ´±íÖĞposÎ»ÖÃ´¦µÄÔªËØ½øĞĞÉ¾³ı´¦Àí£¬²¢½«É¾³ıÔªËØµÄÖµ·Åµ½valÖĞ 
-ÊäÈë£ºÍ·½ÚµãµØÖ·¡¢É¾³ıÎ»ÖÃ¡¢´æ´¢É¾³ıÔªËØµÄµØÖ· 
-Êä³ö£ºtrue/false 
+å¯¹é“¾è¡¨ä¸­posä½ç½®å¤„çš„å…ƒç´ è¿›è¡Œåˆ é™¤å¤„ç†ï¼Œå¹¶å°†åˆ é™¤å…ƒç´ çš„å€¼æ”¾åˆ°valä¸­ 
+è¾“å…¥ï¼šå¤´èŠ‚ç‚¹åœ°å€ã€åˆ é™¤ä½ç½®ã€å­˜å‚¨åˆ é™¤å…ƒç´ çš„åœ°å€ 
+è¾“å‡ºï¼štrue/false 
 */
 bool delate_list(PNODE pHead,int pos,int *val)
 {
@@ -147,7 +147,7 @@ bool delate_list(PNODE pHead,int pos,int *val)
 	PNODE p = pHead->pNext,q;
 	if (pos > length_list(pHead) || pos < 1)
 		{
-			printf("µØÖ·ÎŞĞ§£¬É¾³ıÊ§°Ü£¡\n");
+			printf("åœ°å€æ— æ•ˆï¼Œåˆ é™¤å¤±è´¥ï¼\n");
 			return false;
 		}
 	else
@@ -164,9 +164,9 @@ bool delate_list(PNODE pHead,int pos,int *val)
 	}
 }
 /*
-¶ÔÁ´±íÖĞµÄ¸÷ÔªËØ°´´ÓĞ¡µ½´óµÄË³ĞòÅÅĞò£¨ÕâÀïÑ¡ÔñÓÃÑ¡ÔñÅÅĞò£©
-ÊäÈë£ºÍ·½ÚµãµØÖ·pHead
-Êä³ö£ºÎŞ 
+å¯¹é“¾è¡¨ä¸­çš„å„å…ƒç´ æŒ‰ä»å°åˆ°å¤§çš„é¡ºåºæ’åºï¼ˆè¿™é‡Œé€‰æ‹©ç”¨é€‰æ‹©æ’åºï¼‰
+è¾“å…¥ï¼šå¤´èŠ‚ç‚¹åœ°å€pHead
+è¾“å‡ºï¼šæ—  
 */
 void sort_list(PNODE pHead)
 {
