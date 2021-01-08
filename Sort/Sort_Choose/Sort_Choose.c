@@ -1,5 +1,5 @@
 /*
-Ñ¡ÔñÅÅĞò£ºÓÃ¶¯Ì¬Êı×éÊµÏÖ		 
+é€‰æ‹©æ’åºï¼šç”¨åŠ¨æ€æ•°ç»„å®ç°		 
 */ 
 #include <stdio.h>
 #include <malloc.h>
@@ -9,11 +9,11 @@ int main()
 	int i;
 	int length;
 	
-	printf("ÇëÊäÈëÊı×é³¤¶È£º\n"); 
+	printf("è¯·è¾“å…¥æ•°ç»„é•¿åº¦ï¼š\n"); 
 	scanf("%d",&length);
 	int* Arr = (int*) malloc (sizeof(int)*length);
 	
-	printf("ÇëÊäÈëÕâ%d¸öÊı\n",length);
+	printf("è¯·è¾“å…¥è¿™%dä¸ªæ•°\n",length);
 	for(i=0;i <length;i++)
 	scanf("%d",Arr+i);
 	
@@ -27,7 +27,7 @@ int main()
 void sort_Arr(int * Arr,int l)
 {
 	int i,j,tem,max;
-	for (i = 0;i < l-1;i++ )//¶¨»ùÒı£¨×¢ÒâÕâÀïÊÇ´Ó0¡ªl-2£© 
+	for (i = 0;i < l-1;i++ )//å®šåŸºå¼•ï¼ˆæ³¨æ„è¿™é‡Œæ˜¯ä»0â€”l-2ï¼‰ 
 	{
 		for(j = i+1;j < l;j++)
 		{
