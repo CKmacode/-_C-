@@ -2,8 +2,8 @@
 #include <malloc.h>
 typedef struct Node
 {
-	int coef;//coefficient ÏµÊý
-	int expn;//exponent Ö¸Êý 
+	int coef;//coefficient ç³»æ•°
+	int expn;//exponent æŒ‡æ•° 
 	struct Node* pNext;
 }NODE,*PNODE;
 
@@ -22,13 +22,13 @@ int main()
 	}
 	return 0;
 }
-PNODE create_polyn()//polyn¶àÏîÊ½
+PNODE create_polyn()//polynå¤šé¡¹å¼
 {
 	int coef1,expn1;
 	PNODE pHead = (PNODE)malloc(sizeof(NODE)),pNew,pTop = pHead;
 	while(1)
 	{
-		printf("ÇëÊäÈëÏµÊýÓë¶ÔÓ¦Ö¸Êý£º\n");
+		printf("è¯·è¾“å…¥ç³»æ•°ä¸Žå¯¹åº”æŒ‡æ•°ï¼š\n");
 		scanf("%d %d",&coef1,&expn1); 
 		if (coef1 == 0 && expn1 == 0)
 			break;
@@ -63,7 +63,7 @@ void sort_List(PNODE pHead)
 		{
 			if(p->expn < q->expn)
 			{
-				qÓëpµÄ½»»»£»
+				qä¸Žpçš„äº¤æ¢ï¼›
 				q = q->pNext; 
 			}
 			p = p->pNext;
