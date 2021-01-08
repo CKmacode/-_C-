@@ -1,25 +1,25 @@
 #include <stdio.h>
-#include <malloc.h>//malloc¶¯Ì¬ÄÚ´æ·ÖÅäº¯Êı 
-#include <stdlib.h>//exitº¯Êı 
+#include <malloc.h>//mallocåŠ¨æ€å†…å­˜åˆ†é…å‡½æ•° 
+#include <stdlib.h>//exitå‡½æ•° 
 struct Arr
 {
 	int * pBase;
 	int len;
 	int cnt;
 };
-void init_Arr(struct Arr * pArr,int length);//Êı×é³õÊ¼»¯ 
+void init_Arr(struct Arr * pArr,int length);//æ•°ç»„åˆå§‹åŒ– 
 bool is_empty (struct Arr * pArr); 
 bool is_full (struct Arr * pArr);
 void show_Arr(struct Arr * pArr);
-bool append_Arr(struct Arr * pArr,int val);//×·¼ÓÊı¾İ 
+bool append_Arr(struct Arr * pArr,int val);//è¿½åŠ æ•°æ® 
 bool insert_Arr(struct Arr * pArr,int pos,int val);
-void inversion_Arr(struct Arr * pArr);//µ¹ÖÃÔªËØ 
+void inversion_Arr(struct Arr * pArr);//å€’ç½®å…ƒç´  
 bool delate_Arr (struct Arr * pArr,int pos,int* pval);
 void sort_Arr(struct Arr * pArr);
 bool getelem_Arr(struct Arr *pArr,int pos,int* pval) ;
 bool locateelem_Arr(struct Arr *pArr,int val,int* pos) ;
 //*********************************************************
-int main ()//Ö÷º¯ÊıÓÃÓÚ²âÊÔ¸÷°å¿éÊÇ·ñ³É¹¦ 
+int main ()//ä¸»å‡½æ•°ç”¨äºæµ‹è¯•å„æ¿å—æ˜¯å¦æˆåŠŸ 
 {
 	struct Arr array;
 	int l = 8,val,val_1,val_2 = 666;
@@ -40,7 +40,7 @@ int main ()//Ö÷º¯ÊıÓÃÓÚ²âÊÔ¸÷°å¿éÊÇ·ñ³É¹¦
 	printf("Delated:\n");
 	delate_Arr(&array,4,&val);
 	show_Arr (&array);
-	printf("É¾µôµÄÔªËØÊÇ£º%d\n",val);
+	printf("åˆ æ‰çš„å…ƒç´ æ˜¯ï¼š%d\n",val);
 	
 	printf("Sorted:\n");
 	sort_Arr(&array);
@@ -51,25 +51,25 @@ int main ()//Ö÷º¯ÊıÓÃÓÚ²âÊÔ¸÷°å¿éÊÇ·ñ³É¹¦
 	show_Arr (&array);
 	
 	if (getelem_Arr(&array,pos,&val_1)) 
-	printf("µÚ%d¸öÔªËØÊÇ%d\n",pos,val_1);
+	printf("ç¬¬%dä¸ªå…ƒç´ æ˜¯%d\n",pos,val_1);
 	
 	if (locateelem_Arr(&array,val_2,&pos))
-	printf("Êı×éÖĞµÚÒ»´Î³öÏÖ%dµÄË÷ÒıÎª%d\n",val_2,pos);
+	printf("æ•°ç»„ä¸­ç¬¬ä¸€æ¬¡å‡ºç°%dçš„ç´¢å¼•ä¸º%d\n",val_2,pos);
 	 
 
 	return 0;
 }
 
-/*  Êı×éµÄ³õÊ¼»¯ ,¶¯Ì¬ÄÚ´æ·ÖÅä 
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr£¬Êı×éµÄ³õÊ¼»¯³¤¶Èlength 
-·µ»Ø£ºÎŞ 
+/*  æ•°ç»„çš„åˆå§‹åŒ– ,åŠ¨æ€å†…å­˜åˆ†é… 
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArrï¼Œæ•°ç»„çš„åˆå§‹åŒ–é•¿åº¦length 
+è¿”å›ï¼šæ—  
 */
 void init_Arr(struct Arr * pArr,int length)
 {
 	pArr->pBase = (int *) malloc(sizeof(int)*length);
 	if (pArr->pBase==NULL)
 	{
-		printf("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+		printf("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
 		exit(-1);
 	} 
 	else
@@ -79,9 +79,9 @@ void init_Arr(struct Arr * pArr,int length)
 	}
 	return;
 }
-/*ÅĞ¶ÏÊı×éÊÇ·ñÎª¿Õ 
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr
-·µ»Ø£ºtrue/false 
+/*åˆ¤æ–­æ•°ç»„æ˜¯å¦ä¸ºç©º 
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArr
+è¿”å›ï¼štrue/false 
 */
 bool is_empty (struct Arr * pArr)
 {
@@ -90,9 +90,9 @@ bool is_empty (struct Arr * pArr)
 	else
 	return false;
 }
-/*ÅĞ¶ÏÊı×éÊÇ·ñÎªÂú 
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr
-·µ»Ø£ºtrue/false 
+/*åˆ¤æ–­æ•°ç»„æ˜¯å¦ä¸ºæ»¡ 
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArr
+è¿”å›ï¼štrue/false 
 */
 bool is_full (struct Arr * pArr)
 {
@@ -101,14 +101,14 @@ bool is_full (struct Arr * pArr)
 	else
 	return false;
 }
-/*¶ÔÊı×éµÄÊä³ö 
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ· 
-Êä³ö£ºÎŞ 
+/*å¯¹æ•°ç»„çš„è¾“å‡º 
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€ 
+è¾“å‡ºï¼šæ—  
 */
 void show_Arr(struct Arr * pArr)
 {
 	if (is_empty(pArr))
-	printf("Êı×éÎª¿Õ\n");
+	printf("æ•°ç»„ä¸ºç©º\n");
 	else
 	{
 		for (int i = 0;i < pArr->cnt;i++)
@@ -117,9 +117,9 @@ void show_Arr(struct Arr * pArr)
 	printf("\n");	
 	return;
 } 
-/*ÏòÊı×éÖĞ×·¼ÓÆäËûÊı¾İ
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr£¬Òª×·¼ÓµÄÊı¾İval 
-Êä³ö£ºtrue/false 
+/*å‘æ•°ç»„ä¸­è¿½åŠ å…¶ä»–æ•°æ®
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArrï¼Œè¦è¿½åŠ çš„æ•°æ®val 
+è¾“å‡ºï¼štrue/false 
 */
 bool append_Arr(struct Arr *pArr,int val)
 {
@@ -132,9 +132,9 @@ bool append_Arr(struct Arr *pArr,int val)
 	}
 	return true;
 }
-/*ÏòÊı×éÖĞposÎ»ÖÃÇ°²åÈëÔªËØ 
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr£¬²åÈëÎ»ÖÃpos£¬²åÈëÔªËØval
-Êä³ö£ºtrue/false 
+/*å‘æ•°ç»„ä¸­posä½ç½®å‰æ’å…¥å…ƒç´  
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArrï¼Œæ’å…¥ä½ç½®posï¼Œæ’å…¥å…ƒç´ val
+è¾“å‡ºï¼štrue/false 
 */ 
 bool insert_Arr(struct Arr *pArr,int pos,int val)
 {
@@ -155,9 +155,9 @@ bool insert_Arr(struct Arr *pArr,int pos,int val)
 		}
 }
 /*
-É¾³ıÊı×éArrÖĞposÎ»ÖÃÏÂµÄÔªËØ£¬²¢½«¸ÃÊı·µ»Øµ½pvalÖ¸ÏòµÄµØÖ·ÖĞ
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr£¬Î»ÖÃpos£¬½ÓÊÜÖ¸Õë pval
-Êä³ö£ºtrue/false 
+åˆ é™¤æ•°ç»„Arrä¸­posä½ç½®ä¸‹çš„å…ƒç´ ï¼Œå¹¶å°†è¯¥æ•°è¿”å›åˆ°pvalæŒ‡å‘çš„åœ°å€ä¸­
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArrï¼Œä½ç½®posï¼Œæ¥å—æŒ‡é’ˆ pval
+è¾“å‡ºï¼štrue/false 
 */ 
 bool delate_Arr (struct Arr * pArr,int pos,int* pval)
 {
@@ -177,9 +177,9 @@ bool delate_Arr (struct Arr * pArr,int pos,int* pval)
 	return true;
 }
 /*
-¶ÔÊı×éÖĞ¸÷ÔªËØ½øĞĞÇ°ºóµ¹ÖÃ
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr
-Êä³ö£ºÎŞ 
+å¯¹æ•°ç»„ä¸­å„å…ƒç´ è¿›è¡Œå‰åå€’ç½®
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArr
+è¾“å‡ºï¼šæ—  
 */
 void inversion_Arr(struct Arr*pArr)
 {
@@ -193,9 +193,9 @@ void inversion_Arr(struct Arr*pArr)
 	return;
 }
 /*
-¶ÔÊı×é½øĞĞ´ÓĞ¡µ½´óµÄÅÅĞò£¨ÎÒÃÇÊ¹ÓÃÑ¡ÔñÅÅĞò·¨£©
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·
-Êä³ö£ºÎŞ 
+å¯¹æ•°ç»„è¿›è¡Œä»å°åˆ°å¤§çš„æ’åºï¼ˆæˆ‘ä»¬ä½¿ç”¨é€‰æ‹©æ’åºæ³•ï¼‰
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€
+è¾“å‡ºï¼šæ—  
 */
 void sort_Arr(struct Arr * pArr)
 {
@@ -214,21 +214,21 @@ void sort_Arr(struct Arr * pArr)
 	}
 	return;
 }
-/*²éÕÒÊı×éArrÖĞµÚpos¸öÔªËØ£¬²¢½«ÆäÖµ·µ»Øµ½pvalÖ¸ÏòµÄ¶ÔÏó
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr£¬²éÕÒÎ»ÖÃpos£¬Ö¸Õë±äÁ¿pval 
-Êä³ö£ºtrue/false
+/*æŸ¥æ‰¾æ•°ç»„Arrä¸­ç¬¬posä¸ªå…ƒç´ ï¼Œå¹¶å°†å…¶å€¼è¿”å›åˆ°pvalæŒ‡å‘çš„å¯¹è±¡
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArrï¼ŒæŸ¥æ‰¾ä½ç½®posï¼ŒæŒ‡é’ˆå˜é‡pval 
+è¾“å‡ºï¼štrue/false
 */
 bool getelem_Arr(struct Arr *pArr,int pos,int* pval)
 {
 	int val;
 	if (is_empty(pArr))
 	{
-		printf("Êı×éÎª¿Õ£¬³ÌĞòÖĞÖ¹\n"); 
+		printf("æ•°ç»„ä¸ºç©ºï¼Œç¨‹åºä¸­æ­¢\n"); 
 		return false;
 	}
 	else if (pos < 1||pos > pArr->cnt) 
 	{
-		printf("ÄúÒªµÃµ½µÄÊı¾İ²»´æÔÚ£¬³ÌĞòÖĞÖ¹\n"); 
+		printf("æ‚¨è¦å¾—åˆ°çš„æ•°æ®ä¸å­˜åœ¨ï¼Œç¨‹åºä¸­æ­¢\n"); 
 		return false;
 	}
 	
@@ -237,9 +237,9 @@ bool getelem_Arr(struct Arr *pArr,int pos,int* pval)
 	return true;
 }
 /*
-²éÕÒÊı×éÖĞ³öÏÖvalÔªËØµÄµÚÒ»¸öË÷Òı£¬²¢½«Æä·µ»Øµ½posÖ¸ÏòµÄ±äÁ¿ÖĞ
-ÊäÈë£º½á¹¹ÌåÊ×µØÖ·pArr£¬ÔªËØval£¬Ë÷ÒıÖ¸Õëpos
-Êä³ö£ºtrue/false 
+æŸ¥æ‰¾æ•°ç»„ä¸­å‡ºç°valå…ƒç´ çš„ç¬¬ä¸€ä¸ªç´¢å¼•ï¼Œå¹¶å°†å…¶è¿”å›åˆ°posæŒ‡å‘çš„å˜é‡ä¸­
+è¾“å…¥ï¼šç»“æ„ä½“é¦–åœ°å€pArrï¼Œå…ƒç´ valï¼Œç´¢å¼•æŒ‡é’ˆpos
+è¾“å‡ºï¼štrue/false 
 */
 bool locateelem_Arr(struct Arr *pArr,int val,int* pos) 
 {
@@ -252,7 +252,7 @@ bool locateelem_Arr(struct Arr *pArr,int val,int* pos)
 				return true;
 			}
 	} 
-	printf("ÄúÒªÕÒµ½Êı¾İ²»´æÔÚ£¡\n");
+	printf("æ‚¨è¦æ‰¾åˆ°æ•°æ®ä¸å­˜åœ¨ï¼\n");
 	return false; 
 }
 
